@@ -4,7 +4,7 @@ const empresas = [
     { nome: 'Intel', valorDeMercado: 117, CEO: 'Brian Krzanich', anoDeCriacao: 1968 },
     { nome: 'Facebook', valorDeMercado: 383, CEO: 'Mark Zuckerberg', anoDeCriacao: 2004 },
     { nome: 'Spotify', valorDeMercado: 30, CEO: 'Daniel Ek', anoDeCriacao: 2006 },
-    { nome: 'Apple', valorDeMercado: 845, CEO: 'Tim Cook', anoDeCriacao: 1976 }
+    { nome: 'Apple', valorDeMercado: 845, CEO: 'Tim Cook', anoDeCriacao: 1800 }
 ];
 
 // Primeira questão
@@ -40,3 +40,34 @@ console.log(valor) // Ryan
 
 // Terceira questao
 
+
+const valorDeMercadoTotal = empresas.reduce((accumulator, valor) => {
+    return valor.valorDeMercado + accumulator
+}, 0)
+
+console.log(valorDeMercadoTotal)
+
+let soma = 0;
+
+empresas.forEach((empresa)=>{soma += empresa.valorDeMercado})
+console.log(soma);
+
+
+// Quarta questao
+
+const empresaMaisAntiga = empresas.reduce((maisAntiga, empresa) => {
+    return (empresa.anoDeCriacao < maisAntiga.anoDeCriacao) ? empresa : maisAntiga;
+}, empresas[0]);
+console.log(empresaMaisAntiga);
+
+// Quinta questao
+
+const nomes = [];
+empresas.forEach(empresa => {
+    nomes.push({
+        nome: empresa.nome,
+        ceo: empresa.CEO
+    })
+})
+
+console.log(nomes);
